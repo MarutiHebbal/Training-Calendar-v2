@@ -30,7 +30,7 @@
               <tr align="center">
                 <th class="text-center" style="width:auto;">Trainer Type</th>
                 <th class="text-center" style="width:auto;">Trainer Name</th>
-                <th class="text-center" style="width:auto;">Description</th>
+                <th class="text-center" style="width:auto;">Designation</th>
                 <th class="text-center" style="width:auto;">Created On</th>
                 <th class="text-center" style="width:auto;">Remove/Edit</th>
               </tr>
@@ -56,44 +56,3 @@
     </div>
   </div>
 </div>
-<div (click)="CloseDilog1()">
-
-  <div id="myModal1" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style="margin-right: 180px;">Update Trainer</h4>
-        </div>
-        <div class="wrap-Update-course">
-          <!-- <div> <h3> Update Trainers</h3></div> -->
-          <section class="wrap-create-course">
-            <div class="form-group">
-              <label for="pwd">Trainer Name</label>
-              <input type="text" class="form-control" id="pwd" placeholder="Enter Trainer Name" aria-label="Input group example"
-                aria-describedby="btnGroupAddon" [(ngModel)]="TrainerName">
-            </div>
-            <div class="form-group">
-              <label class="label" for="pwd">Description</label>
-              <input type="text" class="form-control" id="pwd" placeholder="Enter The Description" aria-label="Input group example"
-                aria-describedby="btnGroupAddon" [(ngModel)]="description">
-            </div>
-            <div class="form-group">
-              <label class="label" for="pwd">Trainer Type</label><br>
-              <select [(ngModel)]="TrainerData" aria-describedby="btnGroupAddon" class="form-control" style="width:50%">
-                <option *ngFor="let TrainerDetails of Trainer_Type" [ngValue]="TrainerDetails.value">{{TrainerDetails.name}}</option>
-              </select>
-            </div>
-          </section>
-          <div class="btn">
-            <button type="button" class="btn btn-sm btn-primary btn-create" (click)="UpdateTrainers()">Save</button>
-          </div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-
-        </div>
-
-      </div>
-    </div>
-  </div>

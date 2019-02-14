@@ -74,6 +74,7 @@ import { CreateTrainersComponent } from './admin/create-trainers/create-trainers
 import { FilterPipe} from './filter.pipe';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { UpdateCourseComponent } from './admin/displayCourseDetails/update-course/update-course.component';
+import { EditTrainerComponent } from './admin/edit-trainer/edit-trainer.component';
 /**
  * Example of a String Time adapter
  */
@@ -130,7 +131,8 @@ export function getAuthServiceConfigs() {
     CreateTrainersComponent,
     FilterPipe,
     AdminLoginComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    EditTrainerComponent
   ],
   imports: [
     BrowserModule,

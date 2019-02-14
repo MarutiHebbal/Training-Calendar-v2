@@ -16,6 +16,7 @@ import { TrainerDetailsComponent } from '../admin/trainer-details/trainer-detail
 import { CreateTrainersComponent } from '../admin/create-trainers/create-trainers.component';
 import { AdminLoginComponent } from '../admin-login/admin-login.component';
 import { UpdateCourseComponent } from '../admin/displayCourseDetails/update-course/update-course.component';
+import { EditTrainerComponent } from '../admin/edit-trainer/edit-trainer.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -37,7 +38,8 @@ export const routes: Routes = [
       { path: 'DisplayCourse', component: DisplayComponent },
       { path: 'TrainerDetails', component: TrainerDetailsComponent },
       { path: 'CreateTrainers', component: CreateTrainersComponent },
-      {path:'UpdateCourse/:id',component:UpdateCourseComponent}
+      {path:'UpdateCourse/:id',component:UpdateCourseComponent},
+      { path: 'editTrainer/:id', component:EditTrainerComponent }
     ]
   },
   { path: '**', component: LoginComponent }

@@ -1,0 +1,11 @@
+.container-fluid{
+    font-size: 14px;
+}
+.header{
+    font-size: 18px;
+    font-weight: bold;
+}
+.form-control{
+    width:50%;
+    font-size: 13px;
+}

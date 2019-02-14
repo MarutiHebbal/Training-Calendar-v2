@@ -78,6 +78,7 @@ export class TrainerDetailsComponent implements OnInit {
     console.log("IDDDDDDDD");
     console.log(id);
     this.trainerid = id;
+    this.router.navigate(['AdminDashboard/editTrainer/',id]);
   
     var data = { "Trainer_ID": this.trainerid }
   

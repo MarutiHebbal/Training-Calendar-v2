@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div >
+    <h4 class="header" >Update Trainer</h4>
+  </div>
+  <div class="wrap-Update-course">
+    <section class="wrap-create-course">
+      <div class="form-group">
+        <label for="pwd">Trainer Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pwd"
+          placeholder="Enter Trainer Name"
+          aria-label="Input group example"
+          aria-describedby="btnGroupAddon"
+          [(ngModel)]="TrainerName"
+        />
+      </div>
+      <div class="form-group">
+        <label  for="pwd">Designation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pwd"
+          placeholder="Enter The Description"
+          aria-label="Input group example"
+          aria-describedby="btnGroupAddon"
+          [(ngModel)]="description"
+        />
+      </div>
+      <div class="form-group">
+        <label  for="pwd">Trainer Type</label><br />
+        <select
+          [(ngModel)]="TrainerData"
+          aria-describedby="btnGroupAddon"
+          class="form-control"
+          style="width:50%"
+        >
+          <option
+            *ngFor="let TrainerDetails of Trainer_Type"
+            [ngValue]="TrainerDetails.value"
+            >{{ TrainerDetails.name }}</option
+          >
+        </select>
+      </div>
+    </section>
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-primary btn-create btn-lg"
+        (click)="UpdateTrainers()"
+      >
+        Save
+      </button>
+    
+    <button type="button" class="btn btn-default btn-lg" (click)="cancel()" >
+      Cancel
+    </button></div>
+  </div>
+</div>

@@ -1,8 +1,14 @@
+.container-fluid{
+    font-size: 14px;
+}
 .form-group {
     display: inline-block;
     width: 100%;
 }
-
+.form-control{
+    width:50%;
+    font-size:13px;
+}
 .wrap-create-course {
     padding: 2rem;
 }
