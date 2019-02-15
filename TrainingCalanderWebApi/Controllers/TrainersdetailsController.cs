@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using TrainingCalanderModel.Model;
+using TrainingCalandarModel.Model;
 using TrainingCalendarWebAPI.Common;
 using TrainingCalendarWebAPI.Models;
 
@@ -30,13 +30,13 @@ namespace TrainingCalendarWebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("CreateTrainers")]
         [EnableCors(origins: "*", headers: "*", methods: "POST")]
+        [Route("CreateTrainers")]
         public IHttpActionResult CreateTrainer(TrainerDetails trainerDetails)
         {
             ServiceManager sm = new ServiceManager();
             string ServResponse = null;
-            List<object> Enrollmaster = new List<object>();
+            List<object> TrainerDetails = new List<object>();
             try
             {
                 ServResponse = sm.post_Request("TrainerDetails/AddTrainerdetails",trainerDetails);
@@ -56,17 +56,16 @@ namespace TrainingCalendarWebAPI.Controllers
             }
         }
         [HttpPost]
-        [Route("UpdateTrainers")]
         [EnableCors(origins: "*", headers: "*", methods: "POST")]
+        [Route("UpdateTrainers")]
         public IHttpActionResult UpdateTrainer(TrainerDetails trainerDetails)
         {
             ServiceManager sm = new ServiceManager();
             string ServResponse = null;
-            List<object> Enrollmaster = new List<object>();
+            List<object> TrainerDetails = new List<object>();
             try
             {
                 ServResponse = sm.post_Request("TrainerDetails/UpdateTrainerdetails", trainerDetails);
-           
                 if (ServResponse != null)
                 {
                     return Ok(ServResponse);
@@ -83,8 +82,8 @@ namespace TrainingCalendarWebAPI.Controllers
             }
         }
         [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [Route("GetAllTrainers")]
-        [EnableCors(origins: "*", headers: "*", methods: "POST")]
         public IHttpActionResult GetAllTrainers()
         {
             ServiceManager sm = new ServiceManager();
@@ -109,19 +108,47 @@ namespace TrainingCalendarWebAPI.Controllers
             }
         }
         [HttpPost]
-        [Route("RemoveTrainerdetails")]
         [EnableCors(origins: "*", headers: "*", methods: "POST")]
+        [Route("RemoveTrainerdetails")]
         public IHttpActionResult RemoveTrainer(TrainerDetails trainerDetails)
         {
             ServiceManager sm = new ServiceManager();
             string ServResponse = null;
-            List<object> Enrollmaster = new List<object>();
+            List<object> TrainerDetails = new List<object>();
             try
             {
                 ServResponse = sm.post_Request("TrainerDetails/DeleteTrainerdetails", trainerDetails);
                 if (ServResponse != null)
                 {
+                  
                     return Ok(ServResponse);
+                }
+                else
+                {
+                    return Ok(new HttpError(string.Format("No Records Found")));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        [HttpPost]
+        [EnableCors(origins: "*", headers: "*", methods: "POST")]
+        [Route("GetTrainerByID")]
+        public IHttpActionResult GetTrainersByID(TrainerDetails trainerDetails)
+        {
+            ServiceManager sm = new ServiceManager();
+            string ServResponse = null;
+            List<object> TrainerDetails = new List<object>();
+            try
+            {
+                ServResponse = sm.post_Request("TrainerDetails/GetTrainersByID", trainerDetails);
+                if (ServResponse != null)
+                {
+                    var res = JsonConvert.DeserializeObject(ServResponse);
+                    return Ok(res);
                 }
                 else
                 {
