@@ -53,6 +53,7 @@ export class EditTrainerComponent implements OnInit {
        
             Swal("Trainers Updated ", "SuccessFully!", "success");
             this.display = 'none';
+            this.rout.navigate(["AdminDashboard/TrainerDetails"]);
             window.location.reload();  
           } 
         }) 
