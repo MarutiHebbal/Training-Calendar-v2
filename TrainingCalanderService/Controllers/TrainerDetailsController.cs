@@ -1,6 +1,6 @@
-﻿using System;
+using System;
+using System.Net;
 using System.Web.Http;
-using TrainingCalendarModel.Model;
 using TrainingCalendarModel.Model;
 using TrainingCalendarRepository.Repository.Abstract;
 
@@ -22,9 +22,9 @@ namespace TrainingCalanderService.Controllers
             {
                 return Ok(_TrainerdetailsRepository.AddTrainerDetails(trainerdetails));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                return Content(HttpStatusCode.InternalServerError, "Error ");
             }
         }
         [HttpPost]
@@ -35,9 +35,9 @@ namespace TrainingCalanderService.Controllers
             {
                 return Ok(_TrainerdetailsRepository.DeleteTrainerdetails(trainerdetails));
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                throw ex;
+                return Content(HttpStatusCode.InternalServerError, "Error ");
             }
         }
         [HttpGet]
@@ -48,9 +48,9 @@ namespace TrainingCalanderService.Controllers
             {
                 return Ok(_TrainerdetailsRepository.GetAllTrainerdetails());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                return Content(HttpStatusCode.InternalServerError, "Error ");
             }
         }
         [HttpPost]
@@ -61,9 +61,24 @@ namespace TrainingCalanderService.Controllers
             {
                 return Ok(_TrainerdetailsRepository.UpdateTrainerdetails(trainerdetails));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                return Content(HttpStatusCode.InternalServerError, "Error ");
+            }
+        }
+
+
+        [HttpPost]
+        [Route("GetTrainersByID")]
+        public IHttpActionResult GetTrainersdetailById(Trainerdetails trainerdetails)
+        {
+            try
+            {
+                return Ok(_TrainerdetailsRepository.GetTrainerById(trainerdetails));
+            }
+            catch (Exception)
+            {
+                return Content(HttpStatusCode.InternalServerError, "Error ");
             }
         }
     }
