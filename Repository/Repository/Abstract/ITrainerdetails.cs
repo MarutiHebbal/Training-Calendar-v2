@@ -9,5 +9,6 @@ namespace TrainingCalendarRepository.Repository.Abstract
         bool DeleteTrainerdetails(Trainerdetails trainerDetail);
         IEnumerable GetAllTrainerdetails();
         bool UpdateTrainerdetails(Trainerdetails trainerDetails);
+        IEnumerable GetTrainerById(Trainerdetails trainerDetails);
     }
 }
