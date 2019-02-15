@@ -5,7 +5,7 @@ namespace TrainingCalendarModel.Model
     public partial class Trainerdetails
     {
         public decimal Trainer_ID { get; set; }
-        public decimal Course_ID { get; set; }
+        public string Description { get; set; }
         public Nullable<decimal> User_ID { get; set; }
         public bool Trainer_Type { get; set; }
         public string Trainer_Name { get; set; }
